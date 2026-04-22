@@ -1,0 +1,219 @@
+project:
+  base_dir: "."
+  timezone: "Europe/Madrid"
+
+wp1_gate_rules:
+  master_frequency: "M"
+  quarterly_mapping: "step"
+  min_years_history: 10
+  max_missingness: 0.15
+  daily_to_monthly: "mean"
+  monthly_timestamp: "month_end"
+
+countries:
+  - {code: "US", name: "United States"}
+  - {code: "DE", name: "Germany"}
+  - {code: "ES", name: "Spain"}
+  - {code: "UK", name: "United Kingdom"}
+
+indicators:
+  # Market stress
+  - code: "TS_SLOPE"
+    name: "Term spread 10Y-3M (OECD MEI)"
+    block: "Market stress"
+    direction: -1
+    preferred:
+      source: "FRED"
+      params:
+        input_freq: "M"
+        series_10y_by_country:
+          US: "IRLTLT01USM156N"
+          DE: "IRLTLT01DEM156N"
+          ES: "IRLTLT01ESM156N"
+          UK: "IRLTLT01GBM156N"
+        series_3m_by_country:
+          US: "IR3TIB01USM156N"
+          DE: "IR3TIB01DEM156N"
+          ES: "IR3TIB01ESM156N"
+          UK: "IR3TIB01GBM156N"
+        agg: "mean"
+    transform: "term_spread"
+
+  - code: "VIX_EQ"
+    name: "Equity implied volatility proxy (VIX)"
+    block: "Market stress"
+    direction: +1
+    preferred:
+      source: "FRED"
+      params:
+        input_freq: "D"
+        series_id: "VIXCLS"
+        agg: "mean"
+    transform: "level"
+
+  - code: "CS_CORP"
+    name: "Credit spread proxy (OAS)"
+    block: "Market stress"
+    direction: +1
+    preferred:
+      source: "FRED"
+      params:
+        input_freq: "D"
+        series_id_by_country:
+          US: "BAMLC0A0CM"
+          UK: "BAMLC0A0CM"
+          DE: "BAMLHE00EHYIOAS"
+          ES: "BAMLHE00EHYIOAS"
+        agg: "mean"
+    transform: "level"
+
+  - code: "LIQ_SPREAD"
+    name: "Liquidity stress proxy (TED spread)"
+    block: "Market stress"
+    direction: +1
+    preferred:
+      source: "FRED"
+      params:
+        input_freq: "D"
+        series_id: "TEDRATE"
+        agg: "mean"
+    transform: "level"
+
+  # Credit & leverage
+  - code: "C2GDP_GAP"
+    name: "Credit-to-GDP gap (Basel gap, BIS)"
+    block: "Credit & leverage"
+    direction: +1
+    preferred:
+      source: "BIS_PORTAL"
+      params:
+        input_freq: "Q"
+        dataset: "WS_CREDIT_GAP"
+        key_by_country:
+          US: "Q.US.P.A.C"
+          DE: "Q.DE.P.A.C"
+          ES: "Q.ES.P.A.C"
+          UK: "Q.GB.P.A.C"
+    transform: "level"
+
+  - code: "CREDIT_GROWTH"
+    name: "Total credit YoY growth (BIS total credit)"
+    block: "Credit & leverage"
+    direction: +1
+    preferred:
+      source: "FRED"
+      params:
+        input_freq: "Q"
+        series_id_by_country:
+          US: "QUSPAMUSDA"
+          DE: "QDEPAMUSDA"
+          ES: "QESPAMUSDA"
+          UK: "QGBPAMUSDA"
+    transform: "yoy_pct"
+
+  - code: "DSR"
+    name: "Debt service ratio (private non-financial sector, BIS)"
+    block: "Credit & leverage"
+    direction: +1
+    preferred:
+      source: "BIS_PORTAL"
+      params:
+        input_freq: "Q"
+        dataset: "WS_DSR"
+        key_by_country:
+          US: "Q.US.P"
+          DE: "Q.DE.P"
+          ES: "Q.ES.P"
+          UK: "Q.GB.P"
+    transform: "level"
+
+  - code: "HPI_GROWTH"
+    name: "Real residential property prices YoY growth (BIS)"
+    block: "Credit & leverage"
+    direction: +1
+    preferred:
+      source: "FRED"
+      params:
+        input_freq: "Q"
+        series_id_by_country:
+          US: "QUSR628BIS"
+          DE: "QDER628BIS"
+          ES: "QESR628BIS"
+          UK: "QGBR628BIS"
+    transform: "yoy_pct"
+
+  # Macro vulnerability
+  - code: "GDP_GROWTH"
+    name: "Real GDP YoY growth (OECD)"
+    block: "Macro vulnerability"
+    direction: -1
+    preferred:
+      source: "FRED"
+      params:
+        input_freq: "Q"
+        series_id_by_country:
+          US: "NAEXKP01USQ661S"
+          DE: "NAEXKP01DEQ661S"
+          ES: "NAEXKP01ESQ661S"
+          UK: "NAEXKP01GBQ661S"
+    transform: "yoy_pct"
+
+  - code: "UNEMP"
+    name: "Unemployment rate (OECD)"
+    block: "Macro vulnerability"
+    direction: +1
+    preferred:
+      source: "FRED"
+      params:
+        input_freq: "M"
+        series_id_by_country:
+          US: "LRHUTTTTUSM156S"
+          DE: "LRHUTTTTDEM156N"
+          ES: "LRHUTTTTESM156S"
+          UK: "LRHUTTTTGBM156S"
+    transform: "level"
+
+  - code: "CPI_INFL"
+    name: "CPI inflation YoY (OECD)"
+    block: "Macro vulnerability"
+    direction: +1
+    preferred:
+      source: "FRED"
+      params:
+        input_freq: "M"
+        series_id_by_country:
+          US: "CPALTT01USM659N"
+          DE: "CPALTT01DEM659N"
+          ES: "CPALTT01ESM659N"
+          UK: "CPALTT01GBM659N"
+    transform: "level"
+
+  # Uncertainty
+  - code: "EPU"
+    name: "Economic Policy Uncertainty (monthly)"
+    block: "Uncertainty"
+    direction: +1
+    preferred:
+      source: "FRED"
+      params:
+        input_freq: "M"
+        series_id_by_country:
+          US: "USEPUINDXM"
+          DE: "DEEPUINDXM"
+          ES: "SPEPUINDXM"
+          UK: "UKEPUINDXM"
+    transform: "level"
+
+storage:
+  sqlite_path: "data/metadata/wp2.sqlite"
+  raw_dir: "data/raw"
+  interim_dir: "data/interim"
+  processed_dir: "data/processed"
+  metadata_dir: "data/metadata"
+
+outputs:
+  acquisition_log: "data/metadata/acquisition_log.csv"
+  data_dictionary: "data/metadata/data_dictionary.csv"
+  feasibility_matrix: "data/metadata/feasibility_matrix.csv"
+  processed_long: "data/processed/panel_long.csv"
+  processed_wide: "data/processed/panel_wide.csv"

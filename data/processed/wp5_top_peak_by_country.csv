@@ -1,0 +1,5 @@
+country_code,ew_top_peak_date,ew_top_peak_value,ew_top_peak_episode,ew_top_peak_label,pca_top_peak_date,pca_top_peak_value,pca_top_peak_episode,pca_top_peak_label
+DE,1973-12-31,1.6442171225690616,,tranquil,2001-09-30,4.2187792472366885,Dot-com bust,stress
+ES,1965-05-31,1.9712748447974289,,tranquil,2007-12-31,3.8316432376071945,Global Financial Crisis,stress
+UK,1980-04-30,1.9431414771637696,,tranquil,2008-11-30,8.115701861443817,Global Financial Crisis,stress
+US,1947-01-31,2.3008995630384597,,tranquil,2009-03-31,7.975706429427603,Global Financial Crisis,stress

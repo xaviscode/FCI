@@ -1,0 +1,41 @@
+country_code,date,peak_value,window_label,episode
+DE,1999-02-28,1.9978185462987812,tranquil,
+DE,1999-10-31,2.0623195565715693,buffer,
+DE,2000-05-31,2.559222178838776,stress,Dot-com bust
+DE,2000-12-31,3.6351244731033807,stress,Dot-com bust
+DE,2001-09-30,4.2187792472366885,stress,Dot-com bust
+DE,2002-04-30,3.148087872044622,stress,Dot-com bust
+DE,2002-10-31,4.157549307247385,stress,Dot-com bust
+DE,2003-04-30,3.0120211169932345,tranquil,
+DE,2003-10-31,2.084997912120765,tranquil,
+DE,2009-02-28,3.7833420513631153,stress,Global Financial Crisis
+ES,2001-08-31,2.3474023288104413,stress,Dot-com bust
+ES,2002-05-31,2.3887343130773933,stress,Dot-com bust
+ES,2002-12-31,2.416753489080459,stress,Dot-com bust
+ES,2003-10-31,2.3398732230412413,tranquil,
+ES,2005-01-31,2.31070896748331,tranquil,
+ES,2006-06-30,2.853722947619028,tranquil,
+ES,2006-12-31,3.316103416786405,tranquil,
+ES,2007-06-30,3.3002386037489777,buffer,
+ES,2007-12-31,3.8316432376071945,stress,Global Financial Crisis
+ES,2008-06-30,2.7029263034940074,stress,Global Financial Crisis
+UK,2002-09-30,1.640938808158919,stress,Dot-com bust
+UK,2007-09-30,1.676080936314508,stress,Global Financial Crisis
+UK,2008-03-31,3.0687883453288216,stress,Global Financial Crisis
+UK,2008-11-30,8.115701861443817,stress,Global Financial Crisis
+UK,2009-05-31,5.057357995639474,stress,Global Financial Crisis
+UK,2009-11-30,1.5917229224240752,buffer,
+UK,2010-06-30,1.2956394004381235,stress,Euro-area sovereign stress
+UK,2011-09-30,1.9471065304423407,stress,Euro-area sovereign stress
+UK,2020-04-30,3.7509986744875663,stress,COVID-19 shock
+UK,2020-10-31,1.480739227160969,tranquil,
+US,2007-09-30,1.422685667950002,stress,Global Financial Crisis
+US,2008-03-31,3.4628999446971047,stress,Global Financial Crisis
+US,2008-09-30,5.461694387534359,stress,Global Financial Crisis
+US,2009-03-31,7.975706429427603,stress,Global Financial Crisis
+US,2009-09-30,3.8868022730809257,buffer,
+US,2010-05-31,2.613743729527363,stress,Euro-area sovereign stress
+US,2010-11-30,2.1889500396801616,stress,Euro-area sovereign stress
+US,2011-09-30,3.5556581499284823,stress,Euro-area sovereign stress
+US,2012-06-30,1.4554487950670103,stress,Euro-area sovereign stress
+US,2020-05-31,2.9900468356228087,stress,COVID-19 shock

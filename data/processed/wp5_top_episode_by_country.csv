@@ -1,0 +1,5 @@
+country_code,ew_top_episode,ew_top_episode_mean,ew_top_episode_max,ew_top_episode_n_obs,pca_top_episode,pca_top_episode_mean,pca_top_episode_max,pca_top_episode_n_obs
+DE,COVID-19 shock,0.4841773202125103,0.7536937127439545,5,Dot-com bust,3.189748351358911,4.2187792472366885,36
+ES,Global Financial Crisis,0.2950677154186438,0.9026081273677662,24,Global Financial Crisis,2.408329617242563,3.8316432376071945,24
+UK,Global Financial Crisis,0.3586738994899411,1.0294722839643553,24,Global Financial Crisis,4.085336194617804,8.115701861443817,24
+US,COVID-19 shock,1.092381043946209,1.6938867906924822,5,Global Financial Crisis,4.372508761459501,7.975706429427603,24

@@ -1,0 +1,13 @@
+code,name,block,definition,source,freq,units,direction,transform,availability,coverage,issues
+TS_SLOPE,Term spread 10Y-3M (OECD MEI),Market stress,,FRED,M,,-1,term_spread,,1960-01-31..2026-01-31,
+VIX_EQ,Equity implied volatility proxy (VIX),Market stress,,FRED,M,,1,level,,1990-01-31..2026-03-31,
+CS_CORP,Credit spread proxy (OAS),Market stress,,FRED,M,,1,level,,1996-12-31..2026-03-31,
+LIQ_SPREAD,Liquidity stress proxy (TED spread),Market stress,,FRED,M,,1,level,,1986-01-31..2022-01-31,
+C2GDP_GAP,"Credit-to-GDP gap (Basel gap, BIS)",Credit & leverage,,BIS_PORTAL,M,,1,level,,1973-01-31..2025-06-30,
+CREDIT_GROWTH,Total credit YoY growth (BIS total credit),Credit & leverage,,FRED,M,,1,yoy_pct,,1964-01-31..2025-06-30,
+DSR,"Debt service ratio (private non-financial sector, BIS)",Credit & leverage,,BIS_PORTAL,M,,1,level,,1999-01-31..2025-06-30,
+HPI_GROWTH,Real residential property prices YoY growth (BIS),Credit & leverage,,FRED,M,,1,yoy_pct,,1969-04-30..2025-09-30,
+GDP_GROWTH,Real GDP YoY growth (OECD),Macro vulnerability,,FRED,M,,-1,yoy_pct,,1961-01-31..2023-09-30,
+UNEMP,Unemployment rate (OECD),Macro vulnerability,,FRED,M,,1,level,,1983-01-31..2025-10-31,
+CPI_INFL,CPI inflation YoY (OECD),Macro vulnerability,,FRED,M,,1,level,,1956-01-31..2025-03-31,
+EPU,Economic Policy Uncertainty (monthly),Uncertainty,,FRED,M,,1,level,,1997-01-31..2026-02-28,
